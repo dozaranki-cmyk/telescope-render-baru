@@ -37,7 +37,10 @@ jobs:
 
       - name: Install dependencies
         working-directory: telescope
-        run: npm install
+        run: |
+          rm -f package-lock.json yarn.lock
+          npm install
+          npm install --no-save @remotion/compositor-linux-x64-gnu@4.0.242
 
       - name: Render video (tanpa suara)
         working-directory: telescope
